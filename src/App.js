@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 
+const gobalWebview = window ?? global?.window
+
 function App() {
   const [title, saveTitle] = useState('')
 
@@ -15,7 +17,7 @@ function App() {
   const handleSubmit = e => {
     e.preventDefault();
     console.log('Got title', title)
-    window.postMessage(title);
+    gobalWebview.postMessage(title);
   }
 
   const handleChange = e => saveTitle(e?.target?.value || '')
