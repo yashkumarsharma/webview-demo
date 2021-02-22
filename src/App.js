@@ -1,22 +1,26 @@
+import React, {useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [title, saveTitle] = useState('')
+
+  const handleSubmit = () => {
+    console.log('Got title', title)
+    window.postMessage(title);
+  }
+
+  const handleChange = e => saveTitle(e?.target?.value || '')
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <form onSubmit={handleSubmit}>
+          Update Header Title from Webview: <br />
+          <input type="text" value={title} onChange={handleChange} />
+          <input type="submit" value="Submit" /><br />
+        </form>
       </header>
     </div>
   );
