@@ -5,7 +5,8 @@ import './App.css';
 function App() {
   const [title, saveTitle] = useState('')
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     console.log('Got title', title)
     window.postMessage(title);
   }
