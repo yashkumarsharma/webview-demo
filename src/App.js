@@ -5,6 +5,11 @@ import './App.css';
 function App() {
   const [title, saveTitle] = useState('')
 
+  window.addEventListener("message", function(data) {
+    alert(data.data);
+    saveTitle(title);
+  });
+
   const handleSubmit = e => {
     e.preventDefault();
     console.log('Got title', title)
@@ -18,7 +23,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <form onSubmit={handleSubmit}>
-          Update Header Title from Webview: <br />
+          Demo Input: <br />
           <input type="text" value={title} onChange={handleChange} />
           <input type="submit" value="Submit" /><br />
         </form>
