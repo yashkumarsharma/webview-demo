@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const [title, saveTitle] = useState('')
 
-  useEffect(() => {
-    window.addEventListener("message", function(data) {
-      alert(data.data);
-      saveTitle(title);
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("message", function(data) {
+  //     alert(data.data);
+  //     saveTitle(title);
+  //   });
+  // }, []);
     
   const handleSubmit = e => {
     e.preventDefault();
