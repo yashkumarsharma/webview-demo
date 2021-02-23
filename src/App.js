@@ -3,10 +3,10 @@ import React, {useEffect, useState} from 'react'
 import Api from './api';
 
 import './App.css';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 
-const gobalWebview = window ?? global?.window
+// const gobalWebview = window ?? global?.window
 
 const findGetParameter = (parameterName) => {
   var result = null,
@@ -25,7 +25,7 @@ const findGetParameter = (parameterName) => {
 // token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiYjYwYzZmZDItYmI0YS00NWZlLWFkZGUtNzU3MzFmNmM1OGM0In0sImlhdCI6MTYxNDA2MTEzNX0.1AKaPqiA-4Q3fiYQZdRd68hoTRem1N2y1ztL5la3V_U
 
 function App() {
-  const [title, saveTitle] = useState('')
+  // const [title, saveTitle] = useState('')
   const [workspaces, setWorkspaces] = useState([])
 
   useEffect(() => {
@@ -46,13 +46,13 @@ function App() {
   //   });
   // }, []);
     
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log('Got title', title)
-    gobalWebview.postMessage(title);
-  }
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   console.log('Got title', title)
+  //   gobalWebview.postMessage(title);
+  // }
 
-  const handleChange = e => saveTitle(e?.target?.value || '')
+  // const handleChange = e => saveTitle(e?.target?.value || '')
 
   return (
     <div className="App">
