@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,6 +6,10 @@ const gobalWebview = window ?? global?.window
 
 function App() {
   const [title, saveTitle] = useState('')
+
+  useEffect(() => {
+    alert('in componentdidmount', gobalWebview.testMessage)
+  }, [])
 
   // useEffect(() => {
   //   window.addEventListener("message", function(data) {
@@ -27,7 +31,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <form onSubmit={handleSubmit}>
-          Demo Input: <br />
+          Demo Input: {gobalWebview.testMessage}<br />
           <input type="text" value={title} onChange={handleChange} />
           <input type="submit" value="Submit" /><br />
         </form>
